@@ -1,10 +1,14 @@
-@extends('app')
 
-@section('content')
-<h2>
-	{!! link_to_route('projects.show',$project->name,[$project->slug])!!}
-	{{$task->name}}
-	{{$task->description}}
+<h2>{{$task->name}} of {{$project->name}}
+	
 </h2>
+<div>
+	
+	{{$task->description}}
+</div>
 
-@endsection
+<p>
+	
+	{!! link_to_route('projects.show', 'Back to Tasks', [$project->slug]) !!} |
+        {!! link_to_route('projects.tasks.create', 'Create Task', $project->slug) !!}
+</p>

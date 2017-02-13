@@ -1,5 +1,8 @@
 @extends('app')
 
 @section('content')
-<h1>Create Page</h1>
-@stop
+	<h2>Create Project</h2>
+	{!!Form::model(new App\Project,['route'=>['projects.store']])!!}
+		@include('projects/partials/form',['btn_text'=>'Create Project'])
+	{!!Form::close()!!}
+@endsection

@@ -18,14 +18,21 @@ Route::get('/', function () {
 Route::model('tasks','Task');
 Route::model('projects','Project');
 
-Route::bind('tasks',function($value,$route){
-	return App\Task::whereSlug($value)->first();
+Route::bind('tasks',function($slug,$route){
+	return App\Task::whereSlug($slug)->first();
 });
-Route::bind('projects',function($value,$route){
+Route::bind('projects',function($slug,$route){
 	
-	return App\Project::whereSlug($value)->first();
+	return App\Project::whereSlug($slug)->first();
 });
+// Route::bind('article_or_category', function ($slug) {
+//     return Project::where('slug', $slug)->first();
+              
+// });
+// Route::get('{article_or_category}', ['as'=>'projects:item', 'uses'=>'ProjectsController@show']);
 
+Route::post('route_define','ProjectsController@route_define');
 
 Route::resource('projects','ProjectsController');
+
 Route::resource('projects.tasks','TasksController');

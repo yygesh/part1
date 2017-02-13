@@ -1,0 +1,20 @@
+{
+  "name": "part1",
+  "description": "Hello It is my testing bower project",
+  "main": "",
+  "authors": [
+    "yygesh <yogchhantyal@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/yygesh/part1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

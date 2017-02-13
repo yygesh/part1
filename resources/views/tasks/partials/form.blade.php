@@ -19,7 +19,5 @@
 </div>
 
 <div class="form-group">
-    {!! Form::submit($submit_text) !!}
+    {!! Form::submit($btn_text) !!}
 </div>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Securit

@@ -6,14 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
 
-	<link href="/css/app.css" rel="stylesheet">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
 	<style>
 		.content {margin:auto 30px}
 		label{display:block}
 	</style>
 
 	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<!-- <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+ -->
+ <link rel="stylesheet" href="{{asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,11 +61,24 @@
 	</nav>
 
 	<div class="content">
+	@if (Session::has('message'))
+		<div class="flash alert-info">
+			<p>{{ Session::get('message') }}</p>
+		</div>
+	@endif
+
+	@if($errors->any())
+		<div class="flash alert-danger">
+			@foreach($errors->all() as $error)
+				<p>{{$error}}</p>
+			@endforeach
+		</div>
+	@endif
 		@yield('content')
 	</div>
 
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+	<script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 </body>
 </html>
